@@ -54,10 +54,10 @@ while money > 0:
     print("What kind of bet would you like to make?\n")
     print("1=Straight(Single Number), 2 = Even/Odd, 3 = High/Low(1-18 or 19-36), 4 = Red/Black, 5 = Split \n")
     bet_Choice = int(input(print("Enter your bet choice(1-5): "))
-
+    betType = ""
     if bet_Choice == 1
         straightChoice = int(input(print("Choose a number 0-36, or 00, to place a straight bet upon: ")))
-
+        
 
 
     print(f"You current have ${money}.\n")
