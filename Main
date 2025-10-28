@@ -44,9 +44,19 @@ while money > 0:
     prinf("\n")
     print(f"***Round {round_Num}***"\n")
     print("\n")
+    bet_Amnt = int(input("How much would you like to bet? $")
+    if bet_Amnt > money:
+        print(f"Invalid input. Bet amount cannot be greater than your current money value {money}. Please Try again.\n")
+        elif bet_Amnt <= :
+            print(f"Invalid input. Bet amount cannot be equal or less than 0. Please input again.")
+        continue
+
     print("What kind of bet would you like to make?\n")
-    print("S=Straight(Single Number), \n")
-    print(f"Enter ")
+    print("1=Straight(Single Number), 2 = Even/Odd, 3 = High/Low(1-18 or 19-36), 4 = Red/Black, 5 = Split \n")
+    bet_Choice = int(input(print("Enter your bet choice(1-5): "))
+
+    if bet_Choice == 1
+        straightChoice = int(input(print("Choose a number 0-36, or 00, to place a straight bet upon: ")))
 
 
 
