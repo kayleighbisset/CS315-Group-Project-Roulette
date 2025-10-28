@@ -36,5 +36,20 @@ def main():
     print("Welcome to Roulette!")
     # ask the user how much money they want to start with
     money = int(input("How much money do you want to start with? $"))
+    wheel = Wheel()
+    round_Num = 1
 
+while money > 0:
+    print(f"You current have ${money}.\n")
+    prinf("\n")
+    print(f"***Round {round_Num}***"\n")
+    print("\n")
+    print("What kind of bet would you like to make?\n")
+    print("S=Straight(Single Number), \n")
+    print(f"Enter ")
+
+
+
+    print(f"You current have ${money}.\n")
+    
     
