@@ -4,11 +4,16 @@ import random
 class Wheel:
     def __init__(self, seed=None):
         self.rng = random.Random(seed)
+# This list represents all the slots (pockets) on a roulette wheel.
+# '0' and '00' are special green pockets, and 1–36 are red or black.
+# Since Python lists can't store "00" directly as a separate number, we use -1 to represent "00".
         self.pockets = [0, -1] + list(range(1, 37))  # -1 = 00
         self.size = len(self.pockets)
         self.index = 0
 
     def spin(self):
+        # spin the wheel by moving forward a random number of steps
+        # modulo makes it wrap around the list (circular array)
         steps = self.rng.randint(0, self.size * 5)
         self.index = (self.index + steps) % self.size
         return self.pockets[self.index]
@@ -27,3 +32,7 @@ def get_color(num):
         return "BLACK"
     else:
         return "GREEN"  # for 0 or 00
+def main():
+    print("Welcome to Roulette!")
+    # ask the user how much money they want to start with
+    money = int(input("How much money do you want to start with? $"))
