@@ -55,11 +55,19 @@ while money > 0:
     print("1=Straight(Single Number), 2 = Even/Odd, 3 = High/Low(1-18 or 19-36), 4 = Red/Black, 5 = Split \n")
     bet_Choice = int(input(print("Enter your bet choice(1-5): "))
     betType = ""
-    if bet_Choice == 1
+    if bet_Choice == 1:
+        print("You choose bet #1\n")
         straightChoice = int(input(print("Choose a number 0-36, or -1(for 00), to place a straight bet upon: ")))
-        if straightChoice > 36 or < -1
-    elif bet_Choice == 2
+        if straightChoice == -1 or straightChoice <= 36:
+            validStraight = True
+            betType = "Straight Bet
+            print(f"You placed a straight bet on: {straightChoice}")
+        else:
+            print("Invalid input. Please Reenter an integer, -1 for 00, or 0-36: \n")
+
+    elif bet_Choice == 2:
         even_Odd_Choice = input("Choose even or odd for your bet (E/O): ")
+        if even_Odd_Choice == 'E'
 
 
     print(f"You current have ${money}.\n")
