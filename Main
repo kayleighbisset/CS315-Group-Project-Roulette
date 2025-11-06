@@ -113,8 +113,14 @@ while money > 0:
             high_low = input("Choose either High(19-36) or Low(1-18) bet, (H/L): ").upper()
             if high_low == 'H'
                 validHighLow = True
-                betTyoe = "High Bet"
+                betType = "High Bet"
                 print("You have placed a bet on all High numbers(19-36).")
+         elif high_low = 'L':
+                validHighLow = True:
+                betType = "Low Bet"
+                print("You have placed a bet on all LOW numbers (1-18)\n")
+            else:
+                print("Invalid input. Please enter 'H' for high bets(19-36) and 'L' for low bets(1-18): ")
 
     elif bet_Choice == 4:
         validColor = False
@@ -130,7 +136,7 @@ while money > 0:
                 print("Invalid input. Please enter 'R' for bets on red and 'B' for bets on black: ")
 
     elif bet_Choice == 5:
-
+        print("")
     print(f"You current have ${money}.\n")
 
     
