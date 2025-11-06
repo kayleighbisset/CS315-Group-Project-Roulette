@@ -63,6 +63,7 @@ while money > 0:
             if straightChoice == -1 or straightChoice <= 36:
                 validStraight = True
                 betType = "Straight Bet"
+
                 print(f"You placed a straight bet on: {straightChoice}")
             else:
                 print("Invalid input. Please Reenter an integer, -1 for 00, or 0-36: \n")
@@ -82,7 +83,14 @@ while money > 0:
             else:
                 print("Invalid Input. Please enter 'E' for even and 'O' for odd bets: \n)
    
-    elif bet_Choice == 3;
+    elif bet_Choice == 3:
+        validHighLow = False
+        while validHighLow == False:
+            high_low = input("Choose either High(19-36) or Low(1-18) bet, (H/L): ").upper()
+            if high_low == 'H'
+                validHighLow = True
+                betTyoe = "High Bet"
+                print("You have placed a bet on all High numers(19-36).")
     print(f"You current have ${money}.\n")
     
     
