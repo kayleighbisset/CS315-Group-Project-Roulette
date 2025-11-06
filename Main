@@ -55,7 +55,7 @@ def main():
         validBetChoice = False
         while validBetChoice == False:
             print("What kind of bet would you like to make?\n")
-            print("1=Straight(Single Number) \n 2 = Even/Odd \n 3 = High/Low(1-18 or 19-36)\n 4 = Red/Black\n 5 = Split \n")
+            print("1=Straight(Single Number) \n2 = Even/Odd \n3 = High/Low(1-18 or 19-36)\n4 = Red/Black\n5 = Split \n")
             print("Enter your bet choice(1-5): ")
             bet_Choice = int(input())
             if 1 <= bet_Choice <= 5:
@@ -206,7 +206,7 @@ def main():
             continue
 
         round_Num += 1
-        print(f"You current have ${money}.\n")
+    print(f"You currently have ${money}.\n")
 
     print("You ran out of money. Game over!")
 
