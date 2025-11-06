@@ -68,10 +68,21 @@ while money > 0:
                 print("Invalid input. Please Reenter an integer, -1 for 00, or 0-36: \n")
 
     elif bet_Choice == 2:
-        even_Odd_Choice = input("Choose even or odd for your bet (E/O): ")
-        if even_Odd_Choice == 'E'
-
-
+        validEvenOdd = False
+        while validEvenOdd == False:
+            even_Odd_Choice = input("Choose even or odd for your bet (E/O): ").upper()
+            if even_Odd_Choice == 'E':
+                validEvenOdd = True
+                betType = "Even Bet"
+                print("You have placed a bet on all EVEN numbers.")
+            elif even_Odd_Choice == 'o':
+                validEvenOdd = True
+                betType = "Odd Bet"
+                print("You have placed a bet on all ODD numbers")
+            else:
+                print("Invalid Input. Please enter 'E' for even and 'O' for odd bets: \n)
+   
+    elif bet_Choice == 3;
     print(f"You current have ${money}.\n")
     
     
