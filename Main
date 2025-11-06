@@ -115,7 +115,7 @@ while money > 0:
                 validHighLow = True
                 betType = "High Bet"
                 print("You have placed a bet on all High numbers(19-36).")
-         elif high_low = 'L':
+             elif high_low = 'L':
                 validHighLow = True:
                 betType = "Low Bet"
                 print("You have placed a bet on all LOW numbers (1-18)\n")
