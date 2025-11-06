@@ -183,7 +183,13 @@ while validBetChoice == False:
             validSplit = True
             print(f"\n You placed a split bet on: {split1} and {split2}")
 
-        
+        if result == split1 or result == split2:
+        money += bet_Amnt * 17
+        print("You WIN!")
+        else:
+        money -= bet_Amnt
+        print("You lost.")
+
 
 
     print(f"You current have ${money}.\n")
