@@ -68,6 +68,16 @@ while money > 0:
             else:
                 print("Invalid input. Please Reenter an integer, -1 for 00, or 0-36: \n")
 
+         result = wheel.spin()
+            print(f"Wheel landed on {fmt_pocket(result)} ({get_color(result)})")
+
+            if result == straightChoice:
+                money += bet_Amnt * 35
+                print("You WIN!")
+            else:
+                money -= bet_Amnt
+                print("You lost.")
+
     elif bet_Choice == 2:
         validEvenOdd = False
         while validEvenOdd == False:
@@ -82,6 +92,20 @@ while money > 0:
                 print("You have placed a bet on all ODD numbers")
             else:
                 print("Invalid Input. Please enter 'E' for even and 'O' for odd bets: \n)
+
+        result = wheel.spin()
+            print(f"Wheel landed on {fmt_pocket(result)} ({get_color(result)})")
+
+            if result in (0, -1):
+                money -= bet_Amnt
+                print("0/00 – House wins.")
+            else:
+                if (even_Odd_Choice == "E" and result % 2 == 0) or (even_Odd_Choice == "O" and result % 2 == 1):
+                    money += bet_Amnt * 1   # MULTIPLE ADDED ✅
+                    print("You WIN!")
+                else:
+                    money -= bet_Amnt
+                    print("You lost.")
    
     elif bet_Choice == 3:
         validHighLow = False
@@ -92,5 +116,6 @@ while money > 0:
                 betTyoe = "High Bet"
                 print("You have placed a bet on all High numers(19-36).")
     print(f"You current have ${money}.\n")
+
     
     
