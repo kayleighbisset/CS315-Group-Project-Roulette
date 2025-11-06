@@ -164,7 +164,21 @@ while money > 0:
                     print("You lost.")
 
     elif bet_Choice == 5:
-        print("")
+        print("A split bet will choose between two numbers.\n")
+        validSplit = False
+        while validSplit == False:
+            split1 = int(input("Enter the first number(0-36): "))
+            split2 = int(input("Enter the second number(0-36): "))
+        if split1 == split2:
+            print("Invalid Input. The two inputs cannot be the same. Please reenter your inputs(0-36): ")
+        elif not(0 <= split1 <= 36 and 0 <= split <= 36):
+            print("Invalid Input. Inputs cannot be less than 0 or greater than 36. Please reenter your input(0-36): ")
+        else:
+            validSplit = True
+            print(f"\n You placed a split bet on: {split1} and {split2}")
+
+
+
     print(f"You current have ${money}.\n")
 
     
