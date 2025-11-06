@@ -41,10 +41,8 @@ def main():
     round_Num = 1
 
     while money > 0:
-        print(f"You current have ${money}.\n")
-        print("\n")
+        print(f"You current have ${money}.")
         print(f"***Round {round_Num}***\n")
-        print("\n")
 
         bet_Amnt = int(input("How much would you like to bet? $"))
         if bet_Amnt > money:
