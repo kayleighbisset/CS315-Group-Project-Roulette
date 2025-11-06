@@ -182,8 +182,7 @@ while validBetChoice == False:
         else:
             validSplit = True
             print(f"\n You placed a split bet on: {split1} and {split2}")
-    else:
-        print("Invalid ")
+
         
 
 
