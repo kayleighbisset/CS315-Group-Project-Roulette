@@ -42,7 +42,7 @@ def main():
 while money > 0:
     print(f"You current have ${money}.\n")
     prinf("\n")
-    print(f"***Round {round_Num}***"\n")
+    print(f"***Round {round_Num}***\n")
     print("\n")
     bet_Amnt = int(input("How much would you like to bet? $")
     if bet_Amnt > money:
@@ -62,7 +62,7 @@ while money > 0:
             straightChoice = int(input(print("Choose a number 0-36, or -1(for 00), to place a straight bet upon: ")))
             if straightChoice == -1 or straightChoice <= 36:
                 validStraight = True
-                betType = "Straight Bet
+                betType = "Straight Bet"
                 print(f"You placed a straight bet on: {straightChoice}")
             else:
                 print("Invalid input. Please Reenter an integer, -1 for 00, or 0-36: \n")
