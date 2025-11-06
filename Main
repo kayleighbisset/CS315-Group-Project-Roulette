@@ -136,7 +136,7 @@ while validBetChoice == False:
                 print("0/00 – House wins.")
             else:
                 if (high_low == 'H' and 19 <= result <= 36) or (high_low == 'L' and 1 <= result <= 18):
-                    money += bet_Amnt * 1   # MULTIPLE ADDED ✅
+                    money += bet_Amnt * 1
                     print("You WIN!")
                 else:
                     money -= bet_Amnt
@@ -163,7 +163,7 @@ while validBetChoice == False:
                 print("0/00 – House wins.")
             else:
                 if (rb_choice == 'R' and get_color(result) == "RED") or (rb_choice == 'B' and get_color(result) == "BLACK"):
-                    money += bet_Amnt * 1   # MULTIPLE ADDED ✅
+                    money += bet_Amnt * 1
                     print("You WIN!")
                 else:
                     money -= bet_Amnt
