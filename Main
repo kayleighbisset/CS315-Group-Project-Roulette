@@ -101,7 +101,7 @@ while money > 0:
                 print("0/00 – House wins.")
             else:
                 if (even_Odd_Choice == "E" and result % 2 == 0) or (even_Odd_Choice == "O" and result % 2 == 1):
-                    money += bet_Amnt * 1   # MULTIPLE ADDED ✅
+                    money += bet_Amnt * 1
                     print("You WIN!")
                 else:
                     money -= bet_Amnt
