@@ -7,6 +7,7 @@ class Wheel:
         # This list represents all the slots (pockets) on a roulette wheel.
         # '0' and '00' are special green pockets, and 1–36 are red or black.
         # Since Python lists can't store "00" directly as a separate number, we use -1 to represent "00".
+        # Wheel is circular array
         self.pockets = [0, -1] + list(range(1, 37))  # -1 = 00
         self.size = len(self.pockets)
         self.index = 0
