@@ -44,7 +44,7 @@ class Wheel:
         steps = self.rng.randint(0, self.size * 5)
 
         # Move current pointer forward by 'steps' nodes
-        for _ in range(steps):
+        for i in range(steps):
             self.current = self.current.next
 
         # Return the number it landed on
