@@ -1,33 +1,60 @@
 import random
 
-# Roulette wheel using an array
+# Node for the circular linked list
+class Node:
+    def __init__(self, data=None):
+        # Data stored in the node (roulette pocket)
+        self.data = data
+        # Reference to the next node
+        self.next = None
+
+# Roulette wheel using a circular linked list
 class Wheel:
     def __init__(self, seed=None):
         # Create a random number generator
         self.rng = random.Random(seed)
+        # Store the pockets as nodes in a circular linked list: 0 and 00 (stored as -1), then 1–36
+        values = [0, -1] + list(range(1, 37))
+        self.head = None       # head pointer of the circular linked list
+        self.size = 0          # number of nodes in the list
+        self.index = 0         
 
-        # This list represents every slot on a roulette wheel:
-        # 0 and 00 are green, we represent "00" using -1
-        # 1–36 are red/black numbers and the wheel acts like a circular array
-        self.pockets = [0, -1] + list(range(1, 37))  # -1 = "00"
-        self.size = len(self.pockets)
-        self.index = 0
+        tail = None  # will track the last node so we can link in (O(1))
+
+        # Build the circular linked list (O(n)) everything inside is O(1)
+        for v in values:
+            new_node = Node(v)
+            if self.head is None:
+                # First node: points to itself for now 
+                self.head = new_node
+                new_node.next = new_node
+                tail = new_node
+            else:
+                
+                tail.next = new_node
+                new_node.next = self.head
+                tail = new_node
+            self.size += 1
+
+        # current will act like our pointer moving around the wheel
+        self.current = self.head
 
     def spin(self):
-        # Generate a random number of steps to "move" forward on the wheel
-        # Using modulo (%) makes the wheel wrap around (circular behavior)
+        # Generate a random number of steps to "move" forward on the wheel, traversal of the circular linked list
         steps = self.rng.randint(0, self.size * 5)
-        # Move current index forward by steps
-        self.index = (self.index + steps) % self.size
+
+        # Move current pointer forward by 'steps' nodes
+        for _ in range(steps):
+            self.current = self.current.next
 
         # Return the number it landed on
-        return self.pockets[self.index]
+        return self.current.data
 
-# Converts -1 back to the string "00" for printing
+# Converts -1 back to the string "00" for printing (O(1))
 def fmt_pocket(v):
     return "00" if v == -1 else str(v)
 
-# Color sets
+#Sets for colors: o(1)
 RED = {1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36}
 BLACK = set(range(1, 37)) - RED
 
@@ -47,13 +74,13 @@ def main():
     # Ask user how much money to start with
     # loop until they enter a valid positive integer
     while True:
-        money_raw = input("How much money do you want to start with? $")
+        money_input = input("How much money do you want to start with? $")
         try:
-            money = int(money_raw)
+            money = int(money_input)
             if money <= 0:
                 print("Invalid input. Starting money must be a positive integer.")
                 continue
-            break  # Valid input, exit loop
+            break
         except ValueError:
             print("Invalid input. Please enter a whole dollar amount (integer).")
 
@@ -65,12 +92,11 @@ def main():
         print(f"You currently have ${money}.")
         print(f"***Round {round_num}***\n")
 
-        # Bet amount input
-        # Must be an integer > 0 and not more than current money
+        # Bet amount input, must be an integer > 0 and not more than current money
         while True:
-            bet_raw = input("How much would you like to bet? $")
+            bet_input = input("How much would you like to bet? $")
             try:
-                bet_amnt = int(bet_raw)
+                bet_amnt = int(bet_input)
             except ValueError:
                 print("Invalid input. Please enter an integer bet amount.")
                 print(f"Current money value: ${money}.")
@@ -107,7 +133,6 @@ def main():
             else:
                 print("\nInvalid input. Please enter a number 1 through 5.\n")
 
-        # This variable just stores text describing the bet type
         betType = ""
 
         # Straight Bet
@@ -115,8 +140,7 @@ def main():
             print("You chose bet #1\n")
             validStraight = False
 
-            # Must choose a single number:
-            # -1 = "00", or 0–36 allowed
+            # Must choose a single number: -1 for 00 or 0–36 allowed
             while not validStraight:
                 straight_input = input("Choose a number 0-36, or -1 (for 00): ").strip()
                 try:
@@ -171,7 +195,7 @@ def main():
                 # Check if result matches even or odd preference
                 if (even_Odd_Choice == "E" and result % 2 == 0) or \
                    (even_Odd_Choice == "O" and result % 2 == 1):
-                    money += bet_amnt * 1  # Even money bet → you win equal to what you bet
+                    money += bet_amnt * 1  # You win equal to what you bet
                     print("You WIN!")
                 else:
                     money -= bet_amnt
