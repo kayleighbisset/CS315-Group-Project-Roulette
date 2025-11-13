@@ -30,7 +30,6 @@ class Wheel:
                 new_node.next = new_node
                 tail = new_node
             else:
-                
                 tail.next = new_node
                 new_node.next = self.head
                 tail = new_node
@@ -41,7 +40,7 @@ class Wheel:
 
     def spin(self):
         # Generate a random number of steps to "move" forward on the wheel, traversal of the circular linked list
-        steps = self.rng.randint(0, self.size * 5)
+        steps = self.rng.randint(0, self.size * 2)
 
         # Move current pointer forward by 'steps' nodes
         for i in range(steps):
